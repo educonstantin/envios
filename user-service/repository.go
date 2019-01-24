@@ -1,7 +1,7 @@
 package main
 
 import (
-	pb "github.com/educonstantin/user-service/proto/user"
+	pb "github.com/educonstantin/envios/user-service/proto/user"
 	"github.com/jinzhu/gorm"
 )
 
