@@ -3,7 +3,7 @@ WORKDIR /go/src/user-cli
 RUN export GOPATH=/go/src/user-cli
 COPY . /go/src/user-cli
 RUN go get -v
-RUN CGO_ENABLED=0 GOOS=linux go build -o user-cli -a -installsuffix cgo .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo .
 
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
