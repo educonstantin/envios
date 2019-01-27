@@ -12,7 +12,7 @@ import (
 	"golang.org/x/net/context"
 
 	pb "github.com/educonstantin/envios/consignment-service/proto/consignment"
-	userService "github.com/educonstantin/envios/user-service/proto/auth"
+	userService "github.com/educonstantin/envios/user-service/proto/user"
 	vesselProto "github.com/educonstantin/envios/vessel-service/proto/vessel"
 	"github.com/micro/go-micro"
 	"github.com/micro/go-micro/metadata"
