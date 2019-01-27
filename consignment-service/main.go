@@ -54,12 +54,12 @@ func main() {
 	srv = k8s.NewService(
 
 		// This name must match the package name given in your protobuf definition
-		micro.Name("shippy.consignment"),
+		micro.Name("envios.consignment"),
 		micro.Version("latest"),
 		micro.WrapHandler(AuthWrapper),
 	)
 
-	vesselClient := vesselProto.NewVesselServiceClient("shippy.vessel", srv.Client())
+	vesselClient := vesselProto.NewVesselServiceClient("envios.vessel", srv.Client())
 
 	// Init will parse the command line flags.
 	srv.Init()
