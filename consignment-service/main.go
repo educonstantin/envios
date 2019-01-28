@@ -54,7 +54,7 @@ func main() {
 	srv = k8s.NewService(
 
 		// This name must match the package name given in your protobuf definition
-		micro.Name("envios.consignment"),
+		micro.Name("consignment"),
 		micro.Version("latest"),
 		micro.WrapHandler(AuthWrapper),
 	)
