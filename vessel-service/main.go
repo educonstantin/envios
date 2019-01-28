@@ -8,7 +8,6 @@ import (
 
 	pb "github.com/educonstantin/envios/vessel-service/proto/vessel"
 	"github.com/micro/go-micro"
-	k8s "github.com/micro/kubernetes/go/micro"
 )
 
 const (
@@ -44,7 +43,7 @@ func main() {
 
 	createDummyData(repo)
 
-	srv := k8s.NewService(
+	srv := micro.NewService(
 		micro.Name("go.micro.srv.vessel"),
 		micro.Version("latest"),
 	)
