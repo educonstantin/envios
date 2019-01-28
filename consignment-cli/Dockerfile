@@ -14,4 +14,4 @@ COPY --from=builder /go/src/consignment-cli/consignment-cli .
 CMD ["./consignment-cli"]
 
 # docker build -t consignment-cli .
-# docker run -e MICRO_REGISTRY=mdns consignment-cli
+# docker run --net="host" -e MICRO_REGISTRY=mdns consignment-cli consignment.json <TOKEN_HERE>
