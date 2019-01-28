@@ -96,7 +96,7 @@ func AuthWrapper(fn server.HandlerFunc) server.HandlerFunc {
 		// Auth here
 		// Really shouldn't be using a global here, find a better way
 		// of doing this, since you can't pass it into a wrapper.
-		authClient := userService.NewUserServiceClient("go.micro.srv.user", client.DefaultClient)
+		authClient := userService.NewUserServiceClient("go.micro.srv.user", srv.Client())
 		_, err := authClient.ValidateToken(ctx, &userService.Token{
 			Token: token,
 		})
