@@ -17,7 +17,6 @@ import (
 	"github.com/micro/go-micro"
 	"github.com/micro/go-micro/metadata"
 	"github.com/micro/go-micro/server"
-	k8s "github.com/micro/kubernetes/go/micro"
 )
 
 const (
