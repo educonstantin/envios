@@ -41,13 +41,13 @@ func main() {
 	log.Println(os.Args)
 
 	if len(os.Args) < 3 {
-		log.Fatal(errors.New("Not enough arguments, expecing file and token."))
+		log.Fatal(errors.New("Not enough arguments, expecting file and token."))
 	}
 
 	file = os.Args[1]
 	token = os.Args[2]
 	log.Println(os.Args[1], os.Args[2])
-	
+
 	consignment, err := parseFile(file)
 
 	if err != nil {

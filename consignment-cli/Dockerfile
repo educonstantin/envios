@@ -9,6 +9,7 @@ FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 RUN mkdir /app
 WORKDIR /app
+RUN export GOPATH=/app
 COPY consignment.json /app/consignment.json
 COPY --from=builder /go/src/consignment-cli/consignment-cli .
 CMD ["./consignment-cli"]
