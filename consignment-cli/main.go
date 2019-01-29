@@ -46,7 +46,8 @@ func main() {
 
 	file = os.Args[1]
 	token = os.Args[2]
-
+	log.Println(os.Args[1], os.Args[2])
+	
 	consignment, err := parseFile(file)
 
 	if err != nil {
