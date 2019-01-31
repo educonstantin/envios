@@ -43,8 +43,7 @@ func (s *service) Auth(ctx context.Context, req *pb.User, res *pb.Token) error {
 		return err
 	}
 
-	// Compares our given password against the hashed password
-	// stored in the database
+	// Compares our given password against the hashed password stored in the database
 	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.Password)); err != nil {
 		return err
 	}
