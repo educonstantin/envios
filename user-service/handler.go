@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	pb "github.com/educonstantin/envios/user-service/proto/user"
+	micro "github.com/micro/go-micro"
 	"golang.org/x/crypto/bcrypt"
 	"golang.org/x/net/context"
 	"log"
@@ -15,6 +16,7 @@ const topic = "user.created"
 type service struct {
 	repo         Repository
 	tokenService Authable
+	Publisher	 micro.Publisher
 }
 
 func (s *service) Get(ctx context.Context, req *pb.User, res *pb.Response) error {
@@ -53,12 +55,10 @@ func (s *service) Auth(ctx context.Context, req *pb.User, res *pb.Token) error {
 		return err
 	}
 	res.Token = token
-return nil
+	return nil
 }
 
 func (s *service) Create(ctx context.Context, req *pb.User, res *pb.Response) error {
-
-log.Println("Creating user: ", req)
 
 	// Generates a hashed version of our password
 	hashedPass, err := bcrypt.GenerateFromPassword([]byte(req.Password), bcrypt.DefaultCost)
@@ -71,13 +71,10 @@ log.Println("Creating user: ", req)
 		return errors.New(fmt.Sprintf("error creating user: %v", err))
 	}
 
-	token, err := s.tokenService.Encode(req)
-	if err != nil {
-		return err
-	}
-
 	res.User = req
-	res.Token = &pb.Token{Token: token}
+	if err := s.Publisher.Publish(ctx, req); err !=nil {
+		return errors.New(fmt.Sprintf("error publishing event: %v", err))
+	}
 
 	return nil
 }
