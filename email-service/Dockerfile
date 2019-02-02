@@ -1,6 +1,7 @@
 FROM golang:1.11 as builder
-
-WORKDIR /go/src/github.com/educonstantin/envios/email-service
+RUN mkdir /go/src/email-service
+RUN export GOPATH=/go/src/email-service
+WORKDIR /go/src/email-service
 
 COPY . .
 
@@ -14,7 +15,7 @@ RUN apk --no-cache add ca-certificates
 
 RUN mkdir /app
 WORKDIR /app
-COPY --from=builder /go/src/github.com/educonstantin/envios/email-service .
+COPY --from=builder /go/src/email-service .
 
 CMD ["./email-service"]
 
