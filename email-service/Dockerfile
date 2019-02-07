@@ -5,7 +5,7 @@ WORKDIR /go/src/email-service
 
 COPY . .
 
-RUN go get -v
+RUN go get
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo .
 
 
