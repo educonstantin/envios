@@ -1,7 +1,7 @@
 // user-service/proto/user/user.proto
 syntax = "proto3";
 
-package go.micro.srv.user;
+package envios.user;
 
 service UserService {
     rpc Create(User) returns (Response) {}

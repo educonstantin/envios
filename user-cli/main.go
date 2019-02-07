@@ -14,14 +14,14 @@ func main() {
 
 	srv := micro.NewService(
 
-		micro.Name("go.micro.srv.user-cli"),
+		micro.Name("envios.user-cli"),
 		micro.Version("latest"),
 	)
 
 	// Init will parse the command line flags.
 	srv.Init()
 
-	client := pb.NewUserServiceClient("go.micro.srv.user", microclient.DefaultClient)
+	client := pb.NewUserServiceClient("envios.user", microclient.DefaultClient)
 
 	name := "Eduardo Constantin"
 	email := "educonstantin@gmail.com"

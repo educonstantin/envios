@@ -33,7 +33,7 @@ func main() {
 	cmd.Init()
 
 	// Create new greeter client
-	client := pb.NewConsignmentServiceClient("consignment", microclient.DefaultClient)
+	client := pb.NewConsignmentServiceClient("envios.consignment", microclient.DefaultClient)
 
 	// Contact the server and print out its response.
 	file := defaultFilename
