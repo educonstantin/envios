@@ -4,6 +4,7 @@ import (
 	"log"
 	pb "github.com/educonstantin/envios/user-service/proto/user"
 	"github.com/micro/go-micro"
+	_ "github.com/micro/go-plugins/registry/mdns"
 )
 
 func main() {
