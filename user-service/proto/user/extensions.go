@@ -1,4 +1,4 @@
-package envios.user
+package envios_user
 
 import (
 	"github.com/jinzhu/gorm"
